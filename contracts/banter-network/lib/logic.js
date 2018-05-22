@@ -19,10 +19,10 @@
 
 /**
  * Sample transaction
- * @param {org.example.biznet.SampleTransaction} sampleTransaction
+ * @param {org.example.biznet.SmellyBanter} SmellyBanter
  * @transaction
  */
-async function sampleTransaction(tx) {
+async function SmellyBanter(tx) {
     // Save the old value of the asset.
     const oldValue = tx.asset.value;
 
@@ -30,7 +30,7 @@ async function sampleTransaction(tx) {
     tx.asset.value = tx.newValue;
 
     // Get the asset registry for the asset.
-    const assetRegistry = await getAssetRegistry('org.example.biznet.SampleAsset');
+    const assetRegistry = await getAssetRegistry('org.example.biznet.Banter');
     // Update the asset in the asset registry.
     await assetRegistry.update(tx.asset);
 
