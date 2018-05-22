@@ -27,9 +27,9 @@ chai.should();
 chai.use(require('chai-as-promised'));
 
 const namespace = 'org.example.biznet';
-const assetType = 'SampleAsset';
+const assetType = 'Banter';
 const assetNS = namespace + '.' + assetType;
-const participantType = 'SampleParticipant';
+const participantType = 'SampleBanterer';
 const participantNS = namespace + '.' + participantType;
 
 describe('#' + namespace, () => {
@@ -384,7 +384,7 @@ describe('#' + namespace, () => {
         await useIdentity(aliceCardName);
 
         // Submit the transaction.
-        const transaction = factory.newTransaction(namespace, 'SampleTransaction');
+        const transaction = factory.newTransaction(namespace, 'SmellyBanter');
         transaction.asset = factory.newRelationship(namespace, assetType, '1');
         transaction.newValue = '50';
         await businessNetworkConnection.submitTransaction(transaction);
@@ -412,7 +412,7 @@ describe('#' + namespace, () => {
         await useIdentity(aliceCardName);
 
         // Submit the transaction.
-        const transaction = factory.newTransaction(namespace, 'SampleTransaction');
+        const transaction = factory.newTransaction(namespace, 'SmellyBanter');
         transaction.asset = factory.newRelationship(namespace, assetType, '2');
         transaction.newValue = '50';
         businessNetworkConnection.submitTransaction(transaction).should.be.rejectedWith(/does not have .* access to resource/);
@@ -423,7 +423,7 @@ describe('#' + namespace, () => {
         await useIdentity(bobCardName);
 
         // Submit the transaction.
-        const transaction = factory.newTransaction(namespace, 'SampleTransaction');
+        const transaction = factory.newTransaction(namespace, 'SmellyBanter');
         transaction.asset = factory.newRelationship(namespace, assetType, '2');
         transaction.newValue = '60';
         await businessNetworkConnection.submitTransaction(transaction);
@@ -451,7 +451,7 @@ describe('#' + namespace, () => {
         await useIdentity(bobCardName);
 
         // Submit the transaction.
-        const transaction = factory.newTransaction(namespace, 'SampleTransaction');
+        const transaction = factory.newTransaction(namespace, 'SmellyBanter');
         transaction.asset = factory.newRelationship(namespace, assetType, '1');
         transaction.newValue = '60';
         businessNetworkConnection.submitTransaction(transaction).should.be.rejectedWith(/does not have .* access to resource/);
